@@ -20,12 +20,11 @@ Manual attire enforcement at laboratory entry checkpoints is subjective, resourc
 * **Tamper-Resistant Audit Payloads:** Dynamically embeds bounding-box detection matrices as JSON strings inside EXIF metadata tags (`0x9286 UserComment`) of captured JPEG payloads, offloading image cropping to the backend server without edge latency penalties.
 
 ---
-
 <p align="center">
-  <img width="600" height="338" alt="hardware_demo" src="https://github.com/user-attachments/assets/9b55c926-a809-439d-bbf4-3f2253cbf235" />
+  <img width="600" height="338" alt="hardware_demo" src="https://github.com/user-attachments/assets/9b55c926-a809-439d-bbf4-3f2253cbf235" alt="EdgeVision-AccessControl Live Detection Demo" width="680"/>
+  <br>
+  <em>Real-time YOLOv8 lab attire verification and Region of Interest (ROI) tracking running locally on Raspberry Pi 5.</em>
 </p>
-
-
 
 ## 🏛️ System Architecture
 
