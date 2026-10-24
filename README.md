@@ -14,7 +14,7 @@ Developed as the **CEG1010 Integrative Team Project (ITP)** by Group ID 8 at the
 
 ## 📌 Executive Summary
 
-Manual dress-code and PPE inspections at laboratory entry points are labor-intensive, subjective, and prone to inconsistent enforcement[cite: 37, 38]. Physical turnstiles create high-traffic corridor bottlenecks and lack auditable compliance logs. 
+Manual dress-code and PPE inspections at laboratory entry points are labor-intensive, subjective, and prone to inconsistent enforcement. Physical turnstiles create high-traffic corridor bottlenecks and lack auditable compliance logs. 
 
 **EdgeVision-AccessControl** deploys a contactless, objective computer vision inspection station positioned directly at facility entrances:
 * **Real-Time Automated Inspection:** Identifies compliant attire (covered top, long pants, covered shoes) and restricted garments (shorts, sleeveless shirts, open-toed footwear).
