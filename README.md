@@ -25,36 +25,36 @@ Manual dress-code and PPE inspections at laboratory entry points are labor-inten
 ---
 
 ## 🏛️ System Architecture
-┌────────────────────────────────────────────────────────────────────────┐
-│                        NODE 1: EDGE KIOSK                              │
-│   (Raspberry Pi 5 + 8mm Portrait M12 Lens + 5" LAFVIN Display)         │
-├────────────────────────────────────────────────────────────────────────┤
-│  CSI Video Input ──> DMA Frame Buffer ──> PyQt6 Isolated QThread       │
-│                                                   │                    │
-│                                           YOLOv8 Inference             │
-│                                                   │                    │
-│                                        [Violation Detected?]           │
-│                                         /               \              │
-│                                      (No)               (Yes)          │
-│                                       /                   \            │
-│                       Door Unlocked Signal        Inject JSON to EXIF  │
-│                                                   HTTP POST Request    │
-└───────────────────────────────────────────────────────────┬────────────┘
-│ Local LAN
-▼ (HTTP / JSON)
-┌────────────────────────────────────────────────────────────────────────┐
-│                        NODE 2: SERVER HUB                              │
-│             (Secondary Raspberry Pi 5 / Administrative Host)           │
-├────────────────────────────────────────────────────────────────────────┤
-│  Flask REST API (server_app.py) ──> Parse EXIF Tag 0x9286 (UserComment)│
-│                                                   │                    │
-│                                      OpenCV Native Matrix Slicing      │
-│                                                   │                    │
-│                               ┌───────────────────┴─────────────────┐  │
-│                               ▼                                     ▼  │
-│                   /Received_Captures/                 /Cropped_People/ │
-│                  (Raw High-Res Images)              (Isolated Breaches)│
-└────────────────────────────────────────────────────────────────────────┘
+## 🏛️ System Architecture
+
+```mermaid
+graph TD
+    subgraph NODE1 [NODE 1: EDGE KIOSK]
+        direction TB
+        camera[CSI Camera Module] -->|Zero-Copy DMA| buffer[DMA Frame Buffer]
+        buffer -->|Thread Signals| pyqt[PyQt6 Isolated QThread]
+        pyqt -->|Inference Loop| yolo[YOLOv8 Edge AI Engine]
+        yolo --> detect{Violation Detected?}
+        detect -->|No| access[Grant Door Access<br>Relay / GPIO Action]
+        detect -->|Yes| exif[Inject Bounding-Boxes to EXIF<br>Tag 0x9286]
+    end
+
+    subgraph NETWORK [LOCAL LAN]
+        exif -->|HTTP POST Payload<br>JSON & JPEG| upload[Flask /upload API]
+    end
+
+    subgraph NODE2 [NODE 2: SERVER HUB]
+        direction TB
+        upload --> extract[Extract EXIF Metadata<br>Tag 0x9286]
+        extract --> slice[OpenCV Matrix Slicing Engine]
+        slice --> capture[Received_Captures<br>Raw Uncut JPEGs]
+        slice --> crop[Cropped_Breaches<br>Isolated Violations]
+    end
+
+    style NODE1 fill:#1a1a24,stroke:#C51A4A,stroke-width:2px,color:#fff
+    style NODE2 fill:#1a1a24,stroke:#41CD52,stroke-width:2px,color:#fff
+    style NETWORK fill:#0d1117,stroke:#58a6ff,stroke-width:1px,stroke-dasharray: 5,color:#fff
+    style detect fill:#b85c00,stroke:#ff9000,stroke-width:2px,color:#fff
 ---
 
 ## 📊 Technical Benchmarks & Model Evaluation
