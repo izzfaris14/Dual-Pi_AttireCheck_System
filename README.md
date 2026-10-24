@@ -14,13 +14,13 @@ Developed as the **CEG1010 Integrative Team Project (ITP)** by Group ID 8 at the
 
 ## 📌 Executive Summary
 
-Manual dress-code and PPE inspections at laboratory entry points are labor-intensive, subjective, and prone to inconsistent enforcement[cite: 37, 38]. Physical turnstiles create high-traffic corridor bottlenecks and lack auditable compliance logs[cite: 39]. 
+Manual dress-code and PPE inspections at laboratory entry points are labor-intensive, subjective, and prone to inconsistent enforcement[cite: 37, 38]. Physical turnstiles create high-traffic corridor bottlenecks and lack auditable compliance logs. 
 
 **EdgeVision-AccessControl** deploys a contactless, objective computer vision inspection station positioned directly at facility entrances:
-* **Real-Time Automated Inspection:** Identifies compliant attire (covered top, long pants, covered shoes) and restricted garments (shorts, sleeveless shirts, open-toed footwear)[cite: 3, 37, 38].
-* **Distributed Dual-Node Architecture:** Splits real-time visual inferencing (Node 1: Edge Kiosk) from logging, metadata extraction, and OpenCV matrix slicing (Node 2: Server Hub) to prevent thermal throttling and local memory exhaustion[cite: 37, 40, 44].
-* **Fail-Safe Access Control:** Evaluates subject compliance within a defined Region of Interest (ROI) and maintains physical access locks by default unless safety requirements are met[cite: 37, 41, 54].
-* **Tamper-Resistant Logging:** Dynamically embeds bounding-box detection matrices as JSON strings inside EXIF metadata tags (`0x9286 UserComment`) of captured JPEG payloads, offloading image cropping to the backend[cite: 41, 55, 58].
+* **Real-Time Automated Inspection:** Identifies compliant attire (covered top, long pants, covered shoes) and restricted garments (shorts, sleeveless shirts, open-toed footwear).
+* **Distributed Dual-Node Architecture:** Splits real-time visual inferencing (Node 1: Edge Kiosk) from logging, metadata extraction, and OpenCV matrix slicing (Node 2: Server Hub) to prevent thermal throttling and local memory exhaustion.
+* **Fail-Safe Access Control:** Evaluates subject compliance within a defined Region of Interest (ROI) and maintains physical access locks by default unless safety requirements are met.
+* **Tamper-Resistant Logging:** Dynamically embeds bounding-box detection matrices as JSON strings inside EXIF metadata tags (`0x9286 UserComment`) of captured JPEG payloads, offloading image cropping to the backend.
 
 ---
 
