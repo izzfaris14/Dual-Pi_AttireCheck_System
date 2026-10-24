@@ -21,6 +21,12 @@ Manual attire enforcement at laboratory entry checkpoints is subjective, resourc
 
 ---
 
+<p align="center">
+  <img width="600" height="338" alt="hardware_demo" src="https://github.com/user-attachments/assets/9b55c926-a809-439d-bbf4-3f2253cbf235" />
+</p>
+
+
+
 ## 🏛️ System Architecture
 
 ```mermaid
