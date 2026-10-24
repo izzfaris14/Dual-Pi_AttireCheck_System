@@ -1,0 +1,6 @@
+assets/hardware_demo.gif
+<p align="center">
+  <img src="assets/live_detection.gif" alt="Live Attire Detection Demo" width="680"/>
+  <br>
+  <em>Live YOLOv8 attire classification and ROI tracking running on Node 1 (Raspberry Pi 5).</em>
+</p>
