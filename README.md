@@ -6,7 +6,7 @@
 [![Backend](https://img.shields.io/badge/Backend-Flask%20REST%20API-000000?style=for-the-badge&logo=flask&logoColor=white)](https://flask.palletsprojects.com/)
 [![Academic Project](https://img.shields.io/badge/SIT-CEG1010%20Integrative%20Team%20Project-E31B23?style=for-the-badge)](https://www.singaporetech.edu.sg/)
 
-An industrial-grade edge-AI physical access control station engineered to automate laboratory dress-code and personal protective equipment (PPE) compliance checks. The system classifies compliant attire (covered top, long pants, covered shoes) versus restricted garments (shorts, sleeveless shirts, open-toed footwear) using a dual-node distributed architecture across two Raspberry Pi 5 single-board computers, multi-threaded PyQt6 visual feedback, and zero-loss EXIF metadata audit logging over a localized network.
+An edge-AI physical access control station engineered to automate laboratory dress-code and personal protective equipment (PPE) compliance checks. The system classifies compliant attire (covered top, long pants, covered shoes) versus restricted garments (shorts, sleeveless shirts, open-toed footwear) using a dual-node distributed architecture across two Raspberry Pi 5 single-board computers, multi-threaded PyQt6 visual feedback, and zero-loss EXIF metadata audit logging over a localized network.
 
 ---
 
@@ -14,8 +14,8 @@ An industrial-grade edge-AI physical access control station engineered to automa
 
 Manual attire enforcement at laboratory entry checkpoints is subjective, resource-intensive, and prone to inconsistent enforcement across staff shifts. Physical gatekeeping mechanisms such as turnstiles create high-traffic corridor bottlenecks and lack automated auditing capabilities.
 
-**EdgeVision-AccessControl** deploys a contactless, objective computer vision inspection station positioned directly at facility entrances:
-* **Contactless Compliance Verification:** Analyzes approaching individuals within a calibrated Region of Interest (ROI) to verify safety compliance before physical access is unlocked.
+**Automated Computer Vision System** deploys a contactless, objective computer vision inspection station positioned directly at facility entrances:
+* **Contactless Compliance Verification:** Analyzes approaching individuals within a calibrated Region of Interest (ROI) to verify safety compliance before displaying access status on the LCD.
 * **Dual-Node Distributed Workload:** Separates real-time visual inferencing and UI rendering (Node 1: Edge Kiosk) from administrative database logging and OpenCV image cropping (Node 2: Server Hub) to eliminate CPU scheduling bottlenecks and thermal throttling.
 * **Tamper-Resistant Audit Payloads:** Dynamically embeds bounding-box detection matrices as JSON strings inside EXIF metadata tags (`0x9286 UserComment`) of captured JPEG payloads, offloading image cropping to the backend server without edge latency penalties.
 
