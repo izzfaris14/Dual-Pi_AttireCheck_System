@@ -1,4 +1,4 @@
-# EdgeVision-AccessControl: Distributed Dual-Pi Attire Compliance System
+# Distributed Dual-Pi Attire Compliance System
 
 [![Hardware](https://img.shields.io/badge/Hardware-Raspberry%20Pi%205-C51A4A?style=for-the-badge&logo=raspberrypi&logoColor=white)](https://www.raspberrypi.com/)
 [![Computer Vision](https://img.shields.io/badge/Computer%20Vision-YOLOv8%20%7C%20OpenCV-5C3EE8?style=for-the-badge&logo=opencv&logoColor=white)](https://opencv.org/)
@@ -14,7 +14,7 @@ An edge-AI physical access control station engineered to automate laboratory dre
 
 Manual attire enforcement at laboratory entry checkpoints is subjective, resource-intensive, and prone to inconsistent enforcement across staff shifts. Physical gatekeeping mechanisms such as turnstiles create high-traffic corridor bottlenecks and lack automated auditing capabilities.
 
-**Automated Computer Vision System** deploys a contactless, objective computer vision inspection station positioned directly at facility entrances:
+The **Automated Computer Vision System** deploys a contactless, objective computer vision inspection station positioned directly at facility entrances:
 * **Contactless Compliance Verification:** Analyzes approaching individuals within a calibrated Region of Interest (ROI) to verify safety compliance before displaying access status on the LCD.
 * **Dual-Node Distributed Workload:** Separates real-time visual inferencing and UI rendering (Node 1: Edge Kiosk) from administrative database logging and OpenCV image cropping (Node 2: Server Hub) to eliminate CPU scheduling bottlenecks and thermal throttling.
 * **Tamper-Resistant Audit Payloads:** Dynamically embeds bounding-box detection matrices as JSON strings inside EXIF metadata tags (`0x9286 UserComment`) of captured JPEG payloads, offloading image cropping to the backend server without edge latency penalties.
