@@ -32,7 +32,7 @@ The **Automated Computer Vision System** deploys a contactless, objective comput
 graph TD
     subgraph NODE1 [NODE 1: EDGE KIOSK - RPi 5 + M12 Lens + 5in Touchscreen]
         direction TB
-        camera[CSI Camera Module] -->|Zero-Copy DMA Buffer Sharing| buffer[DMA Frame Buffer]
+        camera[CSI Camera Module] -->|Zero-Copy DMA<br>Buffer Sharing| buffer[DMA Frame Buffer]
         buffer -->|pyqtSignal Dispatch| pyqt[PyQt6 Worker Thread QThread]
         pyqt -->|Real-Time Inference Loop| yolo[YOLOv8 Edge AI Engine]
         yolo --> detect{PPE Breach Detected?}
